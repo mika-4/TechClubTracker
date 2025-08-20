@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+    <title>Hackinfinity - TechClubTracker</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding-top: 60px;
+            text-align: center;
+        }
+        .title-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 0;
+        }
+        .side-line {
+            height: 4px;
+            width: 120px;
+            background: linear-gradient(90deg, #9f70ff 0%, #c39cff 100%);
+            box-shadow: 0 0 12px #c39cff88, 0 0 36px #c39cff44;
+            border-radius: 2px;
+        }
+        .event-title {
+            font-size: 3.2rem;
+            color: #a388fa;
+            font-weight: bold;
+            margin: 0;
+        }
+        .tagline {
+            font-size: 1.0rem;
+            color: #bb84f4;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            font-style: italic;
+            letter-spacing: 1.5px;
+        }
+        .event-card {
+            background: #191226;
+            border: 2px solid #a388fa55;
+            border-radius: 18px;
+            margin: 40px auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 32px #845ec248;
+            max-width: 450px;
+            padding: 35px 25px 28px 25px;
+            gap: 20px;
+        }
+        .event-dates {
+            color: #c5aaff;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .countdown-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 8px;
+        }
+        .count-box {
+            background: #8a6be6;
+            font-size: 2.3rem;
+            font-weight: bold;
+            color: #fff;
+            padding: 12px 38px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px #a388fa62;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        .days-label {
+            font-size: 1.18rem;
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            .container {padding-top: 30px;}
+            .title-row {gap: 10px;}
+            .side-line {width: 35px;}
+            .event-title {font-size: 2rem;}
+            .tagline {font-size: 1.12rem;}
+            .event-card {max-width: 98vw; padding: 18px 8px;}
+            .count-box {font-size: 1.4rem; padding: 10px 16px;}
+        }
+    </style>
+</head>
+
+<header style="background:#121017; padding: 12px 10px; border-bottom: 2px solid #845ec2;">
+  <div class="header-members-static">
+    <div class="member-circle" style="background:#FF6B6B;">AA</div>
+    <div class="member-circle" style="background:#008f7a">AB</div>
+    <div class="member-circle" style="background:#4D96FF;">JS</div>
+    <div class="member-circle" style="background:#FFC75F; color:#000;">IS</div>
+    <div class="member-circle s1">YM</div>
+    <div class="member-circle s1">AS</div>
+    <div class="member-circle s1">BR</div>
+    <div class="member-circle s1">SR</div>
+    <div class="member-circle s1">KR</div>
+    <div class="member-circle s1">DR</div>
+    <div class="member-circle s1">AC</div>
+    <div class="member-circle s2">TV</div>
+    <div class="member-circle s2">NR</div>
+    <div class="member-circle s2">DM</div>
+    <div class="member-circle s2">SM</div>
+    <div class="member-circle s2">PS</div>
+    <div class="member-circle s2">GH</div>
+    <div class="member-circle s2">AM</div>
+    <div class="member-circle s2">AK</div>
+    <div class="member-circle s2">AV</div>
+    <div class="member-circle s2">RK</div>
+    <div class="member-circle s3">PT</div>
+    <div class="member-circle s3">PD</div>
+    <div class="member-circle s3">AK</div>
+    <div class="member-circle s3">DS</div>
+  </div>
+</header>
+
+<style>
+.header-members-static {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.member-circle {
+  width: 36px;
+  height: 36px;
+  min-width: 24px;
+  min-height: 24px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: white;
+  background: #845ec2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  user-select: none;
+  box-shadow: 0 0 6px #0003;
+  cursor: default;
+  flex: none;
+  margin: 0;
+  padding: 0;
+  transition: width 0.1s, height 0.1s, font-size 0.1s;
+}
+
+.s1 { background-color: #ff9671; }
+.s2 { background-color: #4a90e2; }
+.s3 { background-color: #3cb371; }
+
+@media (max-width:900px){
+  .member-circle { width: 28px; height: 28px; font-size: 0.8rem;}
+}
+@media (max-width:600px){
+  .member-circle { width: 22px; height: 22px; font-size: 0.7rem;}
+}
+</style>
+
+
+<body>
+    <div class="container">
+        <div class="title-row">
+            <div class="side-line"></div>
+            <h1 class="event-title">Hackinfinity</h1>
+            <div class="side-line"></div>
+        </div>
+
+        <div class="tagline">Our Biggest Event</div>
+
+        <div class="event-card">
+            <div class="event-dates">26th & 27th September</div>
+            <div class="countdown-group">
+                <div id="daysBox" class="count-box">--</div>
+                <div class="days-label">days to go</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const countBox = document.getElementById('daysBox');
+        const targetDate = new Date(new Date().getFullYear(), 8, 26);
+        const today = new Date();
+        targetDate.setHours(0,0,0,0);
+        today.setHours(0,0,0,0);
+        const diffTime = targetDate - today;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        countBox.textContent = diffDays > 0 ? diffDays : 0;
+    </script>
+    <!-- Add this inside your existing body, below your current content -->
+
+    <section class="domain-section">
+    <div class="domain-row">
+        <a href="website.html" class="domain-box">Website</a>
+        <a href="registrations.html" class="domain-box">Registrations</a>
+        <a href="logistics.html" class="domain-box">Logistics</a>
+        <a href="hospitality.html" class="domain-box">Hospitality</a>
+        <a href="design-pr.html" class="domain-box">Design and PR</a>
+        <a href="hackathon.html" class="domain-box">Hackathon</a>
+    </div>
+    </section>
+
+
+
+</body>
+</html>

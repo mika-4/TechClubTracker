@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hackathon - TechClubTracker</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      color: #845ec2;
+      margin-bottom: 50px;
+      font-weight: 700;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 36px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .left-column {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .box {
+      background: linear-gradient(135deg, #845ec2 65%, #b39ddb 100%);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 2px 24px #845ec244;
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: #252525;
+      cursor: default;
+    }
+    .to-do-list {
+      flex: 1 1 320px;
+      background: linear-gradient(135deg, #845ec2 65%, #b39ddb 100%);
+      border-radius: 20px;
+      padding: 24px 24px 16px 24px;
+      box-shadow: 0 2px 26px #845ec266;
+      max-height: 500px;
+      overflow-y: auto;
+      color: #252525;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .to-do-list h2 {
+      margin-top: 0;
+      color: #423073;
+      font-size: 1.45rem;
+      margin-bottom: 20px;
+    }
+    #new-todo-form {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    #new-todo {
+      flex-grow: 1;
+      padding: 8px 12px;
+      font-size: 1rem;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      outline: none;
+    }
+    #add-button {
+      padding: 8px 16px;
+      background: #845ec2;
+      border: none;
+      color: white;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #add-button:hover {
+      background: #6e46b5;
+    }
+    ul#todo-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+    ul#todo-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 0;
+      border-bottom: 1px solid #cfc7f6aa;
+      word-break: break-word;
+    }
+    ul#todo-list li:last-child {
+      border-bottom: none;
+    }
+    ul#todo-list li label {
+      flex-grow: 1;
+      cursor: pointer;
+      font-weight: 600;
+      color: #252525;
+    }
+    ul#todo-list li input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    ul#todo-list li.completed label {
+      text-decoration: line-through;
+      font-weight: 400;
+      color: #7a7287;
+    }
+    .delete-btn {
+      background: transparent;
+      border: none;
+      color: #b04040;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.15rem;
+      padding: 0 6px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .delete-btn:hover {
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hackathon</h1>
+
+  <div class="container">
+    <div class="left-column">
+      <div class="box">Problem Statements</div>
+      <div class="box">Faculties</div>
+      <div class="box">Schedule</div>
+      <div class="box">Rules</div>
+      <div class="box">Resources</div>
+    </div>
+
+    <div class="to-do-list">
+      <form id="new-todo-form">
+        <input type="text" id="new-todo" placeholder="Add new task..." autocomplete="off" />
+        <button type="submit" id="add-button">Add</button>
+      </form>
+      <ul id="todo-list">
+        <li>
+          <input type="checkbox" id="item-1" />
+          <label for="item-1">Finalize problem statements</label>
+          <button class="delete-btn" aria-label="Delete task">&times;</button>
+        </li>
+        <li>
+          <input type="checkbox" id="item-2" />
+          <label for="item-2">Confirm faculty participation</label>
+          <button class="delete-btn" aria-label="Delete task">&times;</button>
+        </li>
+        <li>
+          <input type="checkbox" id="item-3" />
+          <label for="item-3">Arrange venue and equipment</label>
+          <button class="delete-btn" aria-label="Delete task">&times;</button>
+        </li>
+        <li>
+          <input type="checkbox" id="item-4" />
+          <label for="item-4">Set communication channels</label>
+          <button class="delete-btn" aria-label="Delete task">&times;</button>
+        </li>
+        <li>
+          <input type="checkbox" id="item-5" />
+          <label for="item-5">Notify participants</label>
+          <button class="delete-btn" aria-label="Delete task">&times;</button>
+        </li>
+        <li>
+          <input type="checkbox" id="item-6" />
+          <label for="item-6">Prepare judging criteria</label>
+          <button class="delete-btn" aria-label="Delete task">&times;</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="back-link" style="text-align:center; margin-top:50px;">
+    <a href="hackinfinity.html" style="color:#845ec2; font-weight:600; text-decoration:underline; cursor:pointer;">← Back to Hackinfinity</a>
+  </div>
+
+  <script>
+      const todoForm = document.getElementById('new-todo-form');
+      const newTodoInput = document.getElementById('new-todo');
+      const todoList = document.getElementById('todo-list');
+
+      let todoCount = 0;
+
+      // Save current list to localStorage
+      function saveTodos() {
+        const todos = [];
+        todoList.querySelectorAll('li').forEach(li => {
+          const label = li.querySelector('label').textContent;
+          const completed = li.classList.contains('completed');
+          todos.push({ text: label, completed });
+        });
+        localStorage.setItem('hackathonTodos', JSON.stringify(todos));
+      }
+
+      // Load saved list from localStorage
+      function loadTodos() {
+        const saved = localStorage.getItem('hackathonTodos');
+        if (!saved) return;
+        const todos = JSON.parse(saved);
+        todoList.innerHTML = '';
+        todos.forEach((todo, index) => {
+          addTodoItem(todo.text, todo.completed, index + 1);
+        });
+        todoCount = todos.length;
+      }
+
+      // Add new to-do item (used for both loading and new entry)
+      function addTodoItem(text, completed = false, id = null) {
+        todoCount = Math.max(todoCount, id || 0);
+        const itemId = id ? 'item-' + id : 'item-' + (todoCount + 1);
+
+        const li = document.createElement('li');
+        if (completed) li.classList.add('completed');
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = itemId;
+        checkbox.checked = completed;
+
+        const label = document.createElement('label');
+        label.htmlFor = itemId;
+        label.textContent = text;
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.type = 'button';
+        deleteBtn.setAttribute('aria-label', 'Delete task');
+        deleteBtn.innerHTML = '&times;';
+
+        li.appendChild(checkbox);
+        li.appendChild(label);
+        li.appendChild(deleteBtn);
+        todoList.appendChild(li);
+      }
+
+      // Handle form submit
+      todoForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const text = newTodoInput.value.trim();
+        if (!text) return;
+        addTodoItem(text);
+        newTodoInput.value = '';
+        newTodoInput.focus();
+        saveTodos();
+      });
+
+      // Delegate checkbox toggle and delete
+      todoList.addEventListener('click', e => {
+        if (e.target.tagName === 'INPUT' && e.target.type === 'checkbox') {
+          e.target.parentElement.classList.toggle('completed', e.target.checked);
+          saveTodos();
+        } else if (e.target.classList.contains('delete-btn')) {
+          todoList.removeChild(e.target.parentElement);
+          saveTodos();
+        }
+      });
+
+      // Load todos on page load
+      window.addEventListener('load', loadTodos);
+
+  </script>
+
+</body>
+</html>
